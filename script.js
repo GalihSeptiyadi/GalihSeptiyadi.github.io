@@ -1,13 +1,8 @@
-// Smooth scroll saat klik menu
-document.querySelectorAll('nav a').forEach(link => {
+// Smooth scroll sidebar
+document.querySelectorAll('.sidebar a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-
-        target.scrollIntoView({
-            behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
     });
 });
