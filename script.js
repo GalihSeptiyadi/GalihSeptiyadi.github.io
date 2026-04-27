@@ -70,11 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Close menu when clicking a link
-  navLinksEl?.querySelectorAll('a').forEach(link => {
+ if (navLinksEl) {
+  navLinksEl.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinksEl.classList.remove('open');
     });
   });
+}
 
 
   // ==========================================
