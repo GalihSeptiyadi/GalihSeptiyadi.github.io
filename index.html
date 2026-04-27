@@ -1,245 +1,279 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Akademik - Galih Septiyadi</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galih Septiyadi — AI Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <span class="logo-icon">📚</span>
-                <span class="logo-text">Dashboard</span>
-            </div>
-            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">[</span>GS<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#tentang" class="nav-link">Tentang</a></li>
+        <li><a href="#tugas" class="nav-link">Tugas</a></li>
+        <li><a href="#kontak" class="nav-link">Kontak</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="floating-elements">
+      <div class="float-tag float-1">neural_network</div>
+      <div class="float-tag float-2">machine_learning</div>
+      <div class="float-tag float-3">deep_learning</div>
+      <div class="float-tag float-4">AI</div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Teknik Informatika · Semester 6
+      </div>
+      <h1 class="hero-title reveal">
+        Menjelajahi Batas<br/>
+        <span class="gradient-text">Kecerdasan Buatan</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Halo, saya <strong>Galih Septiyadi</strong> — mahasiswa yang penasaran tentang
+        bagaimana mesin bisa berpikir, belajar, dan memahami dunia.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#tugas" class="btn btn-primary">
+          <span>Lihat Tugas</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#tentang" class="btn btn-ghost">Tentang Saya</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- TENTANG SECTION -->
+  <section class="section tentang" id="tentang">
+    <div class="container">
+      <div class="section-label reveal">// tentang saya</div>
+      <h2 class="section-title reveal">Bukan Sekadar <span class="gradient-text">Mahasiswa Biasa</span></h2>
+
+      <div class="tentang-grid">
+        <div class="tentang-card glass reveal">
+          <div class="card-icon">🧠</div>
+          <p class="tentang-desc">
+            Saya Galih Septiyadi, mahasiswa Teknik Informatika semester 6 di
+            <strong>STMIK Mardira Indonesia</strong>. Saat ini saya sedang mendalami
+            dunia <strong>Kecerdasan Buatan</strong> — dari machine learning, neural network,
+            sampai NLP. Website ini adalah ruang saya untuk mendokumentasikan perjalanan belajar
+            dan menampilkan hasil tugas-tugas kuliah yang (semoga) bermanfaat.
+          </p>
+          <p class="tentang-desc">
+            Saya percaya bahwa AI bukan sekadar teknologi masa depan — ia adalah alat yang
+            bisa memberdayakan siapa saja, termasuk mahasiswa seperti saya, untuk membuat
+            sesuatu yang bermakna.
+          </p>
         </div>
-        
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#home" class="nav-link active" data-section="home">
-                    <span class="nav-icon">🏠</span>
-                    <span class="nav-text">Home</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#tugas-ai" class="nav-link" data-section="tugas-ai">
-                    <span class="nav-icon">🤖</span>
-                    <span class="nav-text">Tugas AI</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
 
-    <!-- Overlay untuk mobile -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        
-        <!-- Section Home -->
-        <section class="section" id="home">
-            <div class="section-header">
-                <h1 class="section-title">Profil Mahasiswa</h1>
-                <p class="section-subtitle">Dashboard Akademik Pribadi</p>
+        <div class="skills-col reveal">
+          <div class="skill-group">
+            <h3 class="skill-title">Bidang Fokus</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Kecerdasan Buatan</span>
+              <span class="skill-tag">Machine Learning</span>
+              <span class="skill-tag">Deep Learning</span>
+              <span class="skill-tag">Computer Vision</span>
+              <span class="skill-tag">NLP</span>
             </div>
-            
-            <div class="profile-card fade-in">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <span>GS</span>
-                    </div>
-                    <div class="profile-info">
-                        <h2 class="profile-name">Galih Septiyadi</h2>
-                        <p class="profile-nim">NIM: 23110309</p>
-                    </div>
-                </div>
-                
-                <div class="profile-details">
-                    <div class="detail-item">
-                        <span class="detail-icon">🏫</span>
-                        <div class="detail-content">
-                            <span class="detail-label">Kampus</span>
-                            <span class="detail-value">STMIK Mardira Indonesia</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-icon">💻</span>
-                        <div class="detail-content">
-                            <span class="detail-label">Jurusan</span>
-                            <span class="detail-value">S1 Teknik Informatika</span>
-                        </div>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-icon">📧</span>
-                        <div class="detail-content">
-                            <span class="detail-label">Email</span>
-                            <span class="detail-value">galih.septiyadi@student.stmik-mi.ac.id</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="profile-bio">
-                    <h3>Tentang Saya</h3>
-                    <p>Mahasiswa Teknik Informatika yang antusias mempelajari bidang Kecerdasan Buatan dan pengembangan teknologi. Memiliki ketertarikan pada machine learning, data science, dan pengembangan aplikasi berbasis AI. Selalu berusaha untuk terus belajar dan mengembangkan kemampuan di bidang teknologi informasi.</p>
-                </div>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-title">Tools & Bahasa</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">Scikit-learn</span>
+              <span class="skill-tag">Jupyter Notebook</span>
+              <span class="skill-tag">HTML/CSS</span>
             </div>
-        </section>
-
-        <!-- Section Tugas AI -->
-        <section class="section" id="tugas-ai" style="display: none;">
-            <div class="section-header">
-                <h1 class="section-title">Tugas Kecerdasan Buatan</h1>
-                <p class="section-subtitle">Kumpulan tugas mata kuliah AI</p>
+          </div>
+          <div class="info-pills">
+            <div class="info-pill glass">
+              <span class="pill-icon">🎓</span>
+              <div>
+                <div class="pill-label">Kampus</div>
+                <div class="pill-value">STMIK Mardira Indonesia</div>
+              </div>
             </div>
-            
-            <div class="task-grid">
-                <!-- Task Card 1 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas1.jpg" alt="Tugas 1" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🤖</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 1</span>
-                        <h3 class="task-title">Pengenalan Kecerdasan Buatan</h3>
-                        <p class="task-description">Memahami konsep dasar AI, sejarah perkembangan, dan aplikasinya dalam kehidupan sehari-hari.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas1.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas1.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 2 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas2.jpg" alt="Tugas 2" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🧠</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 2</span>
-                        <h3 class="task-title">Machine Learning Dasar</h3>
-                        <p class="task-description">Mempelajari konsep machine learning, jenis-jenis algoritma, dan implementasi sederhana.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas2.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas2.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 3 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas3.jpg" alt="Tugas 3" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🔍</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 3</span>
-                        <h3 class="task-title">Algoritma Pencarian</h3>
-                        <p class="task-description">Implementasi algoritma pencarian seperti BFS, DFS, dan A* untuk penyelesaian masalah.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas3.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas3.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 4 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas4.jpg" alt="Tugas 4" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🎯</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 4</span>
-                        <h3 class="task-title">Neural Network</h3>
-                        <p class="task-description">Memahami arsitektur neural network dan cara kerja deep learning dalam AI modern.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas4.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas4.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 5 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas5.jpg" alt="Tugas 5" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>💬</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 5</span>
-                        <h3 class="task-title">Natural Language Processing</h3>
-                        <p class="task-description">Eksplorasi NLP untuk pemrosesan dan analisis teks menggunakan teknik AI.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas5.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas5.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 6 -->
-                <div class="task-card fade-in">
-                    <div class="task-image">
-                        <img src="images/tugas6.jpg" alt="Tugas 6" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>👁️</div>'">
-                    </div>
-                    <div class="task-content">
-                        <span class="task-badge">Tugas 6</span>
-                        <h3 class="task-title">Computer Vision</h3>
-                        <p class="task-description">Penerapan AI untuk pengenalan gambar dan pemrosesan visual dengan CNN.</p>
-                        <div class="task-actions">
-                            <a href="files/tugas6.pdf" class="btn btn-primary" target="_blank">
-                                <span>📄</span> Lihat PDF
-                            </a>
-                            <a href="files/tugas6.pdf" class="btn btn-secondary" download>
-                                <span>⬇️</span> Download
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-pill glass">
+              <span class="pill-icon">📚</span>
+              <div>
+                <div class="pill-label">Jurusan</div>
+                <div class="pill-value">Teknik Informatika</div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-contact">
-                    <span>📧 galih.septiyadi@student.stmik-mi.ac.id</span>
-                </div>
-                <div class="footer-copyright">
-                    <p>&copy; 2025 Galih Septiyadi. All rights reserved.</p>
-                </div>
+  <!-- TUGAS SECTION -->
+  <section class="section tugas" id="tugas">
+    <div class="container">
+      <div class="section-label reveal">// tugas kuliah</div>
+      <h2 class="section-title reveal">Hasil <span class="gradient-text">Pembelajaran</span></h2>
+      <p class="section-desc reveal">Kumpulan tugas dan proyek yang saya kerjakan selama mendalami Kecerdasan Buatan.</p>
+
+      <div class="tugas-grid">
+
+        <div class="tugas-card glass reveal">
+          <div class="card-top">
+            <span class="card-label label-ai">AI</span>
+            <span class="card-num">01</span>
+          </div>
+          <h3 class="card-title">Pengantar Kecerdasan Buatan</h3>
+          <p class="card-desc">Makalah yang membahas sejarah, konsep dasar, dan perkembangan AI mulai dari simbolik hingga machine learning modern.</p>
+          <a href="tugas1.html" class="btn-card">
+            Lihat Detail
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="tugas-card glass reveal">
+          <div class="card-top">
+            <span class="card-label label-ml">ML</span>
+            <span class="card-num">02</span>
+          </div>
+          <h3 class="card-title">Algoritma Supervised Learning</h3>
+          <p class="card-desc">Eksplorasi algoritma klasifikasi: Decision Tree, KNN, dan SVM dengan dataset nyata menggunakan Python dan Scikit-learn.</p>
+          <a href="tugas2.html" class="btn-card">
+            Lihat Detail
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="tugas-card glass reveal">
+          <div class="card-top">
+            <span class="card-label label-dl">DL</span>
+            <span class="card-num">03</span>
+          </div>
+          <h3 class="card-title">Neural Network Dasar</h3>
+          <p class="card-desc">Implementasi feedforward neural network dari nol menggunakan NumPy untuk memahami konsep backpropagation secara mendalam.</p>
+          <a href="tugas3.html" class="btn-card">
+            Lihat Detail
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="tugas-card glass reveal">
+          <div class="card-top">
+            <span class="card-label label-nlp">NLP</span>
+            <span class="card-num">04</span>
+          </div>
+          <h3 class="card-title">Analisis Sentimen Teks</h3>
+          <p class="card-desc">Proyek analisis sentimen pada ulasan produk menggunakan teknik NLP: tokenisasi, TF-IDF, dan model klasifikasi teks.</p>
+          <a href="tugas4.html" class="btn-card">
+            Lihat Detail
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="tugas-card glass reveal">
+          <div class="card-top">
+            <span class="card-label label-cv">CV</span>
+            <span class="card-num">05</span>
+          </div>
+          <h3 class="card-title">Computer Vision: Deteksi Objek</h3>
+          <p class="card-desc">Implementasi dasar deteksi objek menggunakan OpenCV dan model pre-trained untuk mengenali objek dalam gambar.</p>
+          <a href="tugas5.html" class="btn-card">
+            Lihat Detail
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Card tambah tugas baru -->
+        <div class="tugas-card glass card-add reveal">
+          <div class="add-icon">+</div>
+          <p class="add-text">Tugas berikutnya akan ditampilkan di sini. Tambahkan file HTML dan PDF sesuai struktur yang ada.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK SECTION -->
+  <section class="section kontak" id="kontak">
+    <div class="container">
+      <div class="section-label reveal">// kontak</div>
+      <h2 class="section-title reveal">Mari <span class="gradient-text">Terhubung</span></h2>
+
+      <div class="kontak-card glass reveal">
+        <div class="kontak-inner">
+          <div class="kontak-info">
+            <p class="kontak-desc">Punya pertanyaan tentang tugas, atau sekadar ingin berdiskusi tentang AI? Jangan ragu untuk menghubungi saya.</p>
+            <a href="mailto:galihseptiyadi@email.com" class="email-link">
+              <span class="email-icon">✉</span>
+              galihseptiyadi@email.com
+            </a>
+          </div>
+          <div class="kontak-deco">
+            <div class="deco-circle">
+              <div class="deco-inner">✉</div>
             </div>
-        </footer>
-    </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-logo"><span class="logo-bracket">[</span>GS<span class="logo-bracket">]</span></span>
+        <p class="footer-text">© 2025 Galih Septiyadi · Teknik Informatika · STMIK Mardira Indonesia</p>
+        <p class="footer-made">Dibuat dengan ☕ dan semangat belajar</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
