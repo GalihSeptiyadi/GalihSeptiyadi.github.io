@@ -56,9 +56,9 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-.sidebar.collapsed {
-    transform: translateX(-100%);
+ 
+.sidebar {
+    will-change: transform;
 }
 
 .sidebar-header {
@@ -629,5 +629,31 @@ body {
 
     .detail-value {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar {
+        transform: translateX(0) !important;
+    }
+
+    .mobile-toggle {
+        display: none; /* tombol mobile tidak perlu */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
     }
 }
