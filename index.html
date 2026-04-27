@@ -7,32 +7,38 @@
 </head>
 <body>
 
+<!-- TOGGLE BUTTON -->
+<button id="menu-toggle">☰</button>
+
 <div class="container">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
         <h2>📘 Dashboard</h2>
         <nav>
             <a href="#home">Home</a>
             <a href="#tugas">Tugas AI</a>
-            <a href="#kontak">Kontak</a>
         </nav>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN -->
     <main class="main">
 
         <!-- HEADER -->
         <header class="topbar">
-            <h1>Akademik Pribadi</h1>
+            <h1>Dashboard Akademik</h1>
             <p>Galih Septiyadi</p>
         </header>
 
-        <!-- HOME -->
+        <!-- HOME / PROFIL -->
         <section id="home">
-            <div class="card">
-                <h2>Selamat Datang</h2>
-                <p>Dashboard ini digunakan untuk menampilkan tugas-tugas Kecerdasan Buatan secara terstruktur dan profesional.</p>
+            <div class="card fade-in">
+                <h2>Profil Saya</h2>
+                <p><strong>Nama:</strong> Galih Septiyadi</p>
+                <p><strong>NIM:</strong> 23110309</p>
+                <p><strong>Kampus:</strong> STMIK Mardira Indonesia</p>
+                <p><strong>Jurusan:</strong> S1 Teknik Informatika</p>
+                <p><strong>Deskripsi:</strong> Mahasiswa yang tertarik pada pengembangan web dan kecerdasan buatan.</p>
             </div>
         </section>
 
@@ -42,14 +48,14 @@
 
             <div class="grid">
 
-                <div class="card">
+                <div class="card hover-up">
                     <h3>Tugas 1</h3>
                     <p>Pengenalan AI</p>
                     <img src="images/tugas1.jpg">
                     <a href="files/tugas1.pdf" target="_blank" class="btn">Buka File</a>
                 </div>
 
-                <div class="card">
+                <div class="card hover-up">
                     <h3>Tugas 2</h3>
                     <p>Machine Learning</p>
                     <img src="images/tugas2.jpg">
@@ -59,13 +65,11 @@
             </div>
         </section>
 
-        <!-- KONTAK -->
-        <section id="kontak">
-            <div class="card">
-                <h2>Kontak</h2>
-                <p>Email: contoh@email.com</p>
-            </div>
-        </section>
+        <!-- FOOTER / KONTAK -->
+        <footer id="kontak">
+            <p>Email: contoh@email.com</p>
+            <p>© 2026 Galih Septiyadi</p>
+        </footer>
 
     </main>
 
