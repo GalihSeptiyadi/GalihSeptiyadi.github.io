@@ -2,81 +2,74 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Web Pribadi - Tugas AI</title>
+    <title>Dashboard Akademik - Galih</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Web Pribadi</h1>
-    <p>Galih Septiyadi</p>
-</header>
+<div class="container">
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#tugas">Tugas AI</a>
-    <a href="#kontak">Kontak</a>
-</nav>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>📘 Dashboard</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#tugas">Tugas AI</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </aside>
 
-<section id="home">
-    <div class="card">
-        <h2>Selamat Datang</h2>
-        <p>Ini adalah website pribadi saya untuk menampilkan tugas-tugas mata kuliah Kecerdasan Buatan.</p>
-    </div>
-</section>
+    <!-- MAIN CONTENT -->
+    <main class="main">
 
-<section id="tugas">
-    <h2>Daftar Tugas AI</h2>
+        <!-- HEADER -->
+        <header class="topbar">
+            <h1>Akademik Pribadi</h1>
+            <p>Galih Septiyadi</p>
+        </header>
 
-    <div class="card">
-        <h3>Tugas 1 - Pengenalan AI</h3>
-        <p>Penjelasan tentang konsep dasar AI.</p>
+        <!-- HOME -->
+        <section id="home">
+            <div class="card">
+                <h2>Selamat Datang</h2>
+                <p>Dashboard ini digunakan untuk menampilkan tugas-tugas Kecerdasan Buatan secara terstruktur dan profesional.</p>
+            </div>
+        </section>
 
-        <img src="images/tugas1.jpg" alt="Tugas 1">
+        <!-- TUGAS -->
+        <section id="tugas">
+            <h2 class="section-title">Tugas AI</h2>
 
-        <br>
-        <a class="file-link" href="files/tugas1.pdf" target="_blank">
-            Lihat / Download File
-        </a>
-    </div>
+            <div class="grid">
 
-    <div class="card">
-        <h3>Tugas 2 - Machine Learning</h3>
-        <p>Materi tentang supervised learning.</p>
+                <div class="card">
+                    <h3>Tugas 1</h3>
+                    <p>Pengenalan AI</p>
+                    <img src="images/tugas1.jpg">
+                    <a href="files/tugas1.pdf" target="_blank" class="btn">Buka File</a>
+                </div>
 
-        <img src="images/tugas2.jpg" alt="Tugas 2">
+                <div class="card">
+                    <h3>Tugas 2</h3>
+                    <p>Machine Learning</p>
+                    <img src="images/tugas2.jpg">
+                    <a href="files/tugas2.pdf" target="_blank" class="btn">Buka File</a>
+                </div>
 
-        <br>
-        <a class="file-link" href="files/tugas2.pdf" target="_blank">
-            Lihat / Download File
-        </a>
-    </div>
+            </div>
+        </section>
 
-     <div class="card">
-        <h3>Tugas 3 - Machine Learning</h3>
-        <p>Materi tentang supervised learning.</p>
+        <!-- KONTAK -->
+        <section id="kontak">
+            <div class="card">
+                <h2>Kontak</h2>
+                <p>Email: contoh@email.com</p>
+            </div>
+        </section>
 
-        <img src="images/tugas2.jpg" alt="Tugas 2">
+    </main>
 
-        <br>
-        <a class="file-link" href="files/tugas2.pdf" target="_blank">
-            Lihat / Download File
-        </a>
-    </div>
-
-</section>
-
-<section id="kontak">
-    <div class="card">
-        <h2>Kontak</h2>
-        <p>Email: contoh@email.com</p>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 - Web Pribadi</p>
-</footer>
+</div>
 
 <script src="script.js"></script>
 </body>
