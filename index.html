@@ -2,79 +2,242 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Akademik - Galih</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Akademik - Galih Septiyadi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
 </head>
 <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">📚</span>
+                <span class="logo-text">Dashboard</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#tugas-ai" class="nav-link" data-section="tugas-ai">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">Tugas AI</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-<!-- TOGGLE BUTTON -->
-<button id="menu-toggle">☰</button>
+    <!-- Overlay untuk mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<div class="container">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-        <h2>📘 Dashboard</h2>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#tugas">Tugas AI</a>
-        </nav>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="main">
-
-        <!-- HEADER -->
-        <header class="topbar">
-            <h1>Dashboard Akademik</h1>
-            <p>Galih Septiyadi</p>
-        </header>
-
-        <!-- HOME / PROFIL -->
-        <section id="home">
-            <div class="card fade-in">
-                <h2>Profil Saya</h2>
-                <p><strong>Nama:</strong> Galih Septiyadi</p>
-                <p><strong>NIM:</strong> 23110309</p>
-                <p><strong>Kampus:</strong> STMIK Mardira Indonesia</p>
-                <p><strong>Jurusan:</strong> S1 Teknik Informatika</p>
-                <p><strong>Deskripsi:</strong> Mahasiswa yang tertarik pada pengembangan web dan kecerdasan buatan.</p>
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        
+        <!-- Section Home -->
+        <section class="section" id="home">
+            <div class="section-header">
+                <h1 class="section-title">Profil Mahasiswa</h1>
+                <p class="section-subtitle">Dashboard Akademik Pribadi</p>
+            </div>
+            
+            <div class="profile-card fade-in">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <span>GS</span>
+                    </div>
+                    <div class="profile-info">
+                        <h2 class="profile-name">Galih Septiyadi</h2>
+                        <p class="profile-nim">NIM: 23110309</p>
+                    </div>
+                </div>
+                
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">🏫</span>
+                        <div class="detail-content">
+                            <span class="detail-label">Kampus</span>
+                            <span class="detail-value">STMIK Mardira Indonesia</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">💻</span>
+                        <div class="detail-content">
+                            <span class="detail-label">Jurusan</span>
+                            <span class="detail-value">S1 Teknik Informatika</span>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">📧</span>
+                        <div class="detail-content">
+                            <span class="detail-label">Email</span>
+                            <span class="detail-value">galih.septiyadi@student.stmik-mi.ac.id</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-bio">
+                    <h3>Tentang Saya</h3>
+                    <p>Mahasiswa Teknik Informatika yang antusias mempelajari bidang Kecerdasan Buatan dan pengembangan teknologi. Memiliki ketertarikan pada machine learning, data science, dan pengembangan aplikasi berbasis AI. Selalu berusaha untuk terus belajar dan mengembangkan kemampuan di bidang teknologi informasi.</p>
+                </div>
             </div>
         </section>
 
-        <!-- TUGAS -->
-        <section id="tugas">
-            <h2 class="section-title">Tugas AI</h2>
-
-            <div class="grid">
-
-                <div class="card hover-up">
-                    <h3>Tugas 1</h3>
-                    <p>Pengenalan AI</p>
-                    <img src="images/tugas1.jpg">
-                    <a href="files/tugas1.pdf" target="_blank" class="btn">Buka File</a>
+        <!-- Section Tugas AI -->
+        <section class="section" id="tugas-ai" style="display: none;">
+            <div class="section-header">
+                <h1 class="section-title">Tugas Kecerdasan Buatan</h1>
+                <p class="section-subtitle">Kumpulan tugas mata kuliah AI</p>
+            </div>
+            
+            <div class="task-grid">
+                <!-- Task Card 1 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas1.jpg" alt="Tugas 1" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🤖</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 1</span>
+                        <h3 class="task-title">Pengenalan Kecerdasan Buatan</h3>
+                        <p class="task-description">Memahami konsep dasar AI, sejarah perkembangan, dan aplikasinya dalam kehidupan sehari-hari.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas1.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas1.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card hover-up">
-                    <h3>Tugas 2</h3>
-                    <p>Machine Learning</p>
-                    <img src="images/tugas2.jpg">
-                    <a href="files/tugas2.pdf" target="_blank" class="btn">Buka File</a>
+                <!-- Task Card 2 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas2.jpg" alt="Tugas 2" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🧠</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 2</span>
+                        <h3 class="task-title">Machine Learning Dasar</h3>
+                        <p class="task-description">Mempelajari konsep machine learning, jenis-jenis algoritma, dan implementasi sederhana.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas2.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas2.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Task Card 3 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas3.jpg" alt="Tugas 3" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🔍</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 3</span>
+                        <h3 class="task-title">Algoritma Pencarian</h3>
+                        <p class="task-description">Implementasi algoritma pencarian seperti BFS, DFS, dan A* untuk penyelesaian masalah.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas3.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas3.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Card 4 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas4.jpg" alt="Tugas 4" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>🎯</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 4</span>
+                        <h3 class="task-title">Neural Network</h3>
+                        <p class="task-description">Memahami arsitektur neural network dan cara kerja deep learning dalam AI modern.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas4.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas4.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Card 5 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas5.jpg" alt="Tugas 5" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>💬</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 5</span>
+                        <h3 class="task-title">Natural Language Processing</h3>
+                        <p class="task-description">Eksplorasi NLP untuk pemrosesan dan analisis teks menggunakan teknik AI.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas5.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas5.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Card 6 -->
+                <div class="task-card fade-in">
+                    <div class="task-image">
+                        <img src="images/tugas6.jpg" alt="Tugas 6" onerror="this.parentElement.innerHTML='<div class=\'placeholder-img\'>👁️</div>'">
+                    </div>
+                    <div class="task-content">
+                        <span class="task-badge">Tugas 6</span>
+                        <h3 class="task-title">Computer Vision</h3>
+                        <p class="task-description">Penerapan AI untuk pengenalan gambar dan pemrosesan visual dengan CNN.</p>
+                        <div class="task-actions">
+                            <a href="files/tugas6.pdf" class="btn btn-primary" target="_blank">
+                                <span>📄</span> Lihat PDF
+                            </a>
+                            <a href="files/tugas6.pdf" class="btn btn-secondary" download>
+                                <span>⬇️</span> Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- FOOTER / KONTAK -->
-        <footer id="kontak">
-            <p>Email: contoh@email.com</p>
-            <p>© 2026 Galih Septiyadi</p>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <span>📧 galih.septiyadi@student.stmik-mi.ac.id</span>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Galih Septiyadi. All rights reserved.</p>
+                </div>
+            </div>
         </footer>
-
     </main>
 
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
