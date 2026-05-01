@@ -1,291 +1,878 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galih Septiyadi — AI Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Mahasiswa</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
+  <!-- ===== OVERLAY SIDEBAR ===== -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ===== SIDEBAR MOBILE ===== -->
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">✕</button>
+    <nav class="sidebar-nav">
+      <a href="#home" class="sidebar-link">Home</a>
+      <a href="#tentang" class="sidebar-link">Tentang</a>
+      <a href="#tugas" class="sidebar-link">Tugas</a>
+      <a href="#materi" class="sidebar-link">Materi</a>
+    </nav>
+  </aside>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo">
-        <span class="logo-bracket">[</span>GS<span class="logo-bracket">]</span>
+        <span class="logo-bracket">[</span>Porto<span class="logo-accent">folio</span><span class="logo-bracket">]</span>
       </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#tentang" class="nav-link">Tentang</a></li>
-        <li><a href="#tugas" class="nav-link">Tugas</a></li>
-        <li><a href="#kontak" class="nav-link">Kontak</a></li>
-      </ul>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#tentang" class="nav-link">Tentang</a>
+        <a href="#tugas" class="nav-link">Tugas</a>
+        <a href="#materi" class="nav-link">Materi</a>
+      </nav>
       <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <span class="theme-icon">🌙</span>
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+          <span class="toggle-icon">🌙</span>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <button class="hamburger" id="hamburger" aria-label="Buka menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <div class="hero-bg">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="grid-overlay"></div>
-    </div>
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
 
-    <div class="floating-elements">
-      <div class="float-tag float-1">neural_network</div>
-      <div class="float-tag float-2">machine_learning</div>
-      <div class="float-tag float-3">deep_learning</div>
-      <div class="float-tag float-4">AI</div>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Teknik Informatika · Semester 6
+    <!-- ===== HOME ===== -->
+    <section id="home" class="section hero-section">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Mahasiswa Aktif · STMIK Mardira Indonesia
+        </div>
+        <h1 class="hero-title">
+          Halo, Saya<br/>
+          <span class="hero-name">Nama Lengkap</span>
+        </h1>
+        <p class="hero-desc">
+          Mahasiswa Program Studi Teknik Informatika yang antusias di bidang
+          <span class="text-accent">Web Development</span> &
+          <span class="text-accent">Backend Engineering</span>.
+          Selamat datang di portofolio tugas kuliah saya.
+        </p>
+        <div class="hero-cta">
+          <a href="#tugas" class="btn btn-primary">Lihat Tugas →</a>
+          <a href="#tentang" class="btn btn-ghost">Tentang Saya</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">18</span>
+            <span class="stat-label">Tugas</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">16</span>
+            <span class="stat-label">Materi</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Semester</span>
+          </div>
+        </div>
       </div>
-      <h1 class="hero-title reveal">
-        Menjelajahi Batas<br/>
-        <span class="gradient-text">Kecerdasan Buatan</span>
-      </h1>
-      <p class="hero-sub reveal">
-        Halo, saya <strong>Galih Septiyadi</strong> — mahasiswa yang penasaran tentang
-        bagaimana mesin bisa berpikir, belajar, dan memahami dunia.
-      </p>
-      <div class="hero-actions reveal">
-        <a href="#tugas" class="btn btn-primary">
-          <span>Lihat Tugas</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="#tentang" class="btn btn-ghost">Tentang Saya</a>
+      <div class="hero-visual">
+        <div class="hero-card-float">
+          <div class="float-card card-1">
+            <span class="card-icon">📂</span>
+            <span>Tugas Lengkap</span>
+          </div>
+          <div class="float-card card-2">
+            <span class="card-icon">📚</span>
+            <span>Materi Kuliah</span>
+          </div>
+          <div class="float-card card-3">
+            <span class="card-icon">🎓</span>
+            <span>Akademik</span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      <span>scroll</span>
-    </div>
-  </section>
-
-  <!-- TENTANG SECTION -->
-  <section class="section tentang" id="tentang">
-    <div class="container">
-      <div class="section-label reveal">// tentang saya</div>
-      <h2 class="section-title reveal">Bukan Sekadar <span class="gradient-text">Mahasiswa Biasa</span></h2>
-
-      <div class="tentang-grid">
-        <div class="tentang-card glass reveal">
-          <div class="card-icon">🧠</div>
-          <p class="tentang-desc">
-            Saya Galih Septiyadi, mahasiswa Teknik Informatika semester 6 di
-            <strong>STMIK Mardira Indonesia</strong>. Saat ini saya sedang mendalami
-            dunia <strong>Kecerdasan Buatan</strong> — dari machine learning, neural network,
-            sampai NLP. Website ini adalah ruang saya untuk mendokumentasikan perjalanan belajar
-            dan menampilkan hasil tugas-tugas kuliah yang (semoga) bermanfaat.
-          </p>
-          <p class="tentang-desc">
-            Saya percaya bahwa AI bukan sekadar teknologi masa depan — ia adalah alat yang
-            bisa memberdayakan siapa saja, termasuk mahasiswa seperti saya, untuk membuat
-            sesuatu yang bermakna.
-          </p>
+    <!-- ===== TENTANG SAYA ===== -->
+    <section id="tentang" class="section tentang-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 01</span>
+          <h2 class="section-title">Tentang Saya</h2>
+          <p class="section-sub">Kenali saya lebih dekat</p>
         </div>
 
-        <div class="skills-col reveal">
-          <div class="skill-group">
-            <h3 class="skill-title">Bidang Fokus</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Kecerdasan Buatan</span>
-              <span class="skill-tag">Machine Learning</span>
-              <span class="skill-tag">Deep Learning</span>
-              <span class="skill-tag">Computer Vision</span>
-              <span class="skill-tag">NLP</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3 class="skill-title">Tools & Bahasa</h3>
-            <div class="skill-tags">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">TensorFlow</span>
-              <span class="skill-tag">Scikit-learn</span>
-              <span class="skill-tag">Jupyter Notebook</span>
-              <span class="skill-tag">HTML/CSS</span>
-            </div>
-          </div>
-          <div class="info-pills">
-            <div class="info-pill glass">
-              <span class="pill-icon">🎓</span>
-              <div>
-                <div class="pill-label">Kampus</div>
-                <div class="pill-value">STMIK Mardira Indonesia</div>
+        <div class="tentang-grid">
+          <!-- Foto + info utama -->
+          <div class="tentang-left">
+            <div class="profile-photo-wrap">
+              <div class="profile-photo">
+                <img src="foto.jpg" alt="Foto Profil" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')"/>
+                <div class="photo-placeholder">
+                  <span class="photo-initial">NL</span>
+                </div>
+              </div>
+              <div class="profile-badge-wrap">
+                <span class="profile-badge">Mahasiswa Aktif</span>
               </div>
             </div>
-            <div class="info-pill glass">
-              <span class="pill-icon">📚</span>
-              <div>
-                <div class="pill-label">Jurusan</div>
-                <div class="pill-value">Teknik Informatika</div>
+            <div class="info-card">
+              <div class="info-row">
+                <span class="info-label">Nama</span>
+                <span class="info-val">Nama Lengkap</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">NIM</span>
+                <span class="info-val mono">2300001</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Kampus</span>
+                <span class="info-val">STMIK Mardira Indonesia</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Prodi</span>
+                <span class="info-val">Teknik Informatika</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Jenjang</span>
+                <span class="info-val">S1</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Angkatan</span>
+                <span class="info-val">2023</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Email</span>
+                <span class="info-val mono">nama@email.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deskripsi, minat, skill -->
+          <div class="tentang-right">
+            <div class="about-desc-card">
+              <h3 class="about-sub-title">Deskripsi</h3>
+              <p class="about-desc">
+                Saya adalah mahasiswa Teknik Informatika di STMIK Mardira Indonesia angkatan 2023.
+                Saya memiliki semangat tinggi dalam belajar teknologi, khususnya di bidang pengembangan web
+                dan pemrograman berbasis backend. Situs ini merupakan dokumentasi tugas-tugas perkuliahan saya
+                yang dapat diakses kapan saja.
+              </p>
+            </div>
+
+            <div class="about-desc-card">
+              <h3 class="about-sub-title">Minat Bidang</h3>
+              <div class="minat-list">
+                <span class="minat-tag">🌐 Web Development</span>
+                <span class="minat-tag">⚙️ Backend Engineering</span>
+                <span class="minat-tag">🗄️ Database</span>
+                <span class="minat-tag">🔐 Keamanan Sistem</span>
+                <span class="minat-tag">📱 Mobile App</span>
+              </div>
+            </div>
+
+            <div class="about-desc-card">
+              <h3 class="about-sub-title">Skill</h3>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">HTML & CSS</span>
+                    <span class="skill-pct">85%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-pct">75%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">Java</span>
+                    <span class="skill-pct">70%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">PHP / MySQL</span>
+                    <span class="skill-pct">65%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+                </div>
+                <div class="skill-item">
+                  <div class="skill-header">
+                    <span class="skill-name">Git & GitHub</span>
+                    <span class="skill-pct">60%</span>
+                  </div>
+                  <div class="skill-bar"><div class="skill-fill" data-w="60"></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- TUGAS SECTION -->
-  <section class="section tugas" id="tugas">
-    <div class="container">
-      <div class="section-label reveal">// tugas kuliah</div>
-      <h2 class="section-title reveal">Hasil <span class="gradient-text">Pembelajaran</span></h2>
-      <p class="section-desc reveal">Kumpulan tugas dan proyek yang saya kerjakan selama mendalami Kecerdasan Buatan.</p>
-
-      <div class="tugas-grid">
-
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-ai">AI</span>
-            <span class="card-num">01</span>
-          </div>
-          <h3 class="card-title">Pengantar Kecerdasan Buatan</h3>
-          <p class="card-desc">Makalah yang membahas sejarah, konsep dasar, dan perkembangan AI mulai dari simbolik hingga machine learning modern.</p>
-          <a href="tugas1.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
+    <!-- ===== TUGAS ===== -->
+    <section id="tugas" class="section tugas-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 02</span>
+          <h2 class="section-title">Tugas</h2>
+          <p class="section-sub">Kumpulan tugas perkuliahan per pertemuan</p>
         </div>
 
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-ml">ML</span>
-            <span class="card-num">02</span>
-          </div>
-          <h3 class="card-title">Algoritma Supervised Learning</h3>
-          <p class="card-desc">Eksplorasi algoritma klasifikasi: Decision Tree, KNN, dan SVM dengan dataset nyata menggunakan Python dan Scikit-learn.</p>
-          <a href="tugas2.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
+        <div class="accordion-grid" id="tugasAccordion">
 
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-dl">DL</span>
-            <span class="card-num">03</span>
-          </div>
-          <h3 class="card-title">Neural Network Dasar</h3>
-          <p class="card-desc">Implementasi feedforward neural network dari nol menggunakan NumPy untuk memahami konsep backpropagation secara mendalam.</p>
-          <a href="tugas3.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-nlp">NLP</span>
-            <span class="card-num">04</span>
-          </div>
-          <h3 class="card-title">Analisis Sentimen Teks</h3>
-          <p class="card-desc">Proyek analisis sentimen pada ulasan produk menggunakan teknik NLP: tokenisasi, TF-IDF, dan model klasifikasi teks.</p>
-          <a href="tugas4.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-cv">CV</span>
-            <span class="card-num">05</span>
-          </div>
-          <h3 class="card-title">Computer Vision: Deteksi Objek</h3>
-          <p class="card-desc">Implementasi dasar deteksi objek menggunakan OpenCV dan model pre-trained untuk mengenali objek dalam gambar.</p>
-          <a href="tugas5.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="tugas-card glass reveal">
-          <div class="card-top">
-            <span class="card-label label-cv">CV</span>
-            <span class="card-num">06</span>
-          </div>
-          <h3 class="card-title">Metode Pencarian dan Pelacakan</h3>
-          <p class="card-desc">wkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkwkw</p>
-          <a href="tugas5.html" class="btn-card">
-            Lihat Detail
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </a>
-        </div>
-
-
-        <!-- Card tambah tugas baru -->
-        <div class="tugas-card glass card-add reveal">
-          <div class="add-icon">+</div>
-          <p class="add-text">Tugas berikutnya akan ditampilkan di sini. Tambahkan file HTML dan PDF sesuai struktur yang ada.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAK SECTION -->
-  <section class="section kontak" id="kontak">
-    <div class="container">
-      <div class="section-label reveal">// kontak</div>
-      <h2 class="section-title reveal">Mari <span class="gradient-text">Terhubung</span></h2>
-
-      <div class="kontak-card glass reveal">
-        <div class="kontak-inner">
-          <div class="kontak-info">
-            <p class="kontak-desc">Punya pertanyaan tentang tugas, atau sekadar ingin berdiskusi tentang AI? Jangan ragu untuk menghubungi saya.</p>
-            <a href="mailto:galihseptiyadi@email.com" class="email-link">
-              <span class="email-icon">✉</span>
-              galihseptiyadi@email.com
-            </a>
-          </div>
-          <div class="kontak-deco">
-            <div class="deco-circle">
-              <div class="deco-inner">✉</div>
+          <!-- Pertemuan 1 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-1">
+              <div class="acc-left">
+                <span class="acc-num">01</span>
+                <span class="acc-label">Pertemuan 1</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-1">
+              <div class="task-card">
+                <h4 class="task-title">Pengenalan Mata Kuliah</h4>
+                <p class="task-desc">Tugas pertama berisi ringkasan materi pengenalan mata kuliah dan kontrak perkuliahan semester ini.</p>
+                <a href="pdf/tugas/tugas-1.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
             </div>
           </div>
+
+          <!-- Pertemuan 2 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-2">
+              <div class="acc-left">
+                <span class="acc-num">02</span>
+                <span class="acc-label">Pertemuan 2</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-2">
+              <div class="task-card">
+                <h4 class="task-title">Dasar Pemrograman</h4>
+                <p class="task-desc">Latihan soal dan jawaban mengenai konsep dasar pemrograman terstruktur dan algoritma.</p>
+                <a href="pdf/tugas/tugas-2.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 3 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-3">
+              <div class="acc-left">
+                <span class="acc-num">03</span>
+                <span class="acc-label">Pertemuan 3</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-3">
+              <div class="task-card">
+                <h4 class="task-title">Struktur Data Dasar</h4>
+                <p class="task-desc">Tugas tentang array, list, dan implementasinya dalam bahasa pemrograman Java.</p>
+                <a href="pdf/tugas/tugas-3.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 4 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-4">
+              <div class="acc-left">
+                <span class="acc-num">04</span>
+                <span class="acc-label">Pertemuan 4</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-4">
+              <div class="task-card">
+                <h4 class="task-title">OOP — Kelas dan Objek</h4>
+                <p class="task-desc">Implementasi konsep Object Oriented Programming menggunakan class, objek, dan enkapsulasi.</p>
+                <a href="pdf/tugas/tugas-4.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 5 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-5">
+              <div class="acc-left">
+                <span class="acc-num">05</span>
+                <span class="acc-label">Pertemuan 5</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-5">
+              <div class="task-card">
+                <h4 class="task-title">Inheritance & Polymorphism</h4>
+                <p class="task-desc">Studi kasus penerapan pewarisan dan polimorfisme dalam sistem manajemen sederhana.</p>
+                <a href="pdf/tugas/tugas-5.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 6 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-6">
+              <div class="acc-left">
+                <span class="acc-num">06</span>
+                <span class="acc-label">Pertemuan 6</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-6">
+              <div class="task-card">
+                <h4 class="task-title">HTML & CSS Dasar</h4>
+                <p class="task-desc">Pembuatan halaman web statis menggunakan HTML5 dan CSS3 dengan layout responsif sederhana.</p>
+                <a href="pdf/tugas/tugas-6.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 7 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-7">
+              <div class="acc-left">
+                <span class="acc-num">07</span>
+                <span class="acc-label">Pertemuan 7</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-7">
+              <div class="task-card">
+                <h4 class="task-title">JavaScript DOM Manipulation</h4>
+                <p class="task-desc">Latihan manipulasi DOM menggunakan JavaScript vanilla — event listener, querySelector, dan dinamis HTML.</p>
+                <a href="pdf/tugas/tugas-7.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 8 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-8">
+              <div class="acc-left">
+                <span class="acc-num">08</span>
+                <span class="acc-label">Pertemuan 8 — UTS</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-8">
+              <div class="task-card">
+                <h4 class="task-title">Ujian Tengah Semester</h4>
+                <p class="task-desc">Jawaban UTS mencakup materi pertemuan 1–7: pemrograman dasar, OOP, dan web development.</p>
+                <a href="pdf/tugas/tugas-8.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 9 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-9">
+              <div class="acc-left">
+                <span class="acc-num">09</span>
+                <span class="acc-label">Pertemuan 9</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-9">
+              <div class="task-card">
+                <h4 class="task-title">Basis Data & SQL</h4>
+                <p class="task-desc">Penulisan query SQL dasar: SELECT, INSERT, UPDATE, DELETE pada studi kasus database perpustakaan.</p>
+                <a href="pdf/tugas/tugas-9.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 10 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-10">
+              <div class="acc-left">
+                <span class="acc-num">10</span>
+                <span class="acc-label">Pertemuan 10</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-10">
+              <div class="task-card">
+                <h4 class="task-title">PHP & MySQL Integration</h4>
+                <p class="task-desc">Membuat aplikasi CRUD sederhana menggunakan PHP native yang terhubung dengan database MySQL.</p>
+                <a href="pdf/tugas/tugas-10.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 11 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-11">
+              <div class="acc-left">
+                <span class="acc-num">11</span>
+                <span class="acc-label">Pertemuan 11</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-11">
+              <div class="task-card">
+                <h4 class="task-title">Jaringan Komputer</h4>
+                <p class="task-desc">Tugas analisis topologi jaringan dan konsep subnetting pada jaringan komputer lokal.</p>
+                <a href="pdf/tugas/tugas-11.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 12 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-12">
+              <div class="acc-left">
+                <span class="acc-num">12</span>
+                <span class="acc-label">Pertemuan 12</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-12">
+              <div class="task-card">
+                <h4 class="task-title">Keamanan Sistem Informasi</h4>
+                <p class="task-desc">Makalah tentang ancaman keamanan sistem informasi dan strategi mitigasi yang dapat diterapkan.</p>
+                <a href="pdf/tugas/tugas-12.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 13 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-13">
+              <div class="acc-left">
+                <span class="acc-num">13</span>
+                <span class="acc-label">Pertemuan 13</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-13">
+              <div class="task-card">
+                <h4 class="task-title">Rekayasa Perangkat Lunak</h4>
+                <p class="task-desc">Membuat dokumen SRS (Software Requirements Specification) untuk aplikasi manajemen tugas mahasiswa.</p>
+                <a href="pdf/tugas/tugas-13.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 14 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-14">
+              <div class="acc-left">
+                <span class="acc-num">14</span>
+                <span class="acc-label">Pertemuan 14</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-14">
+              <div class="task-card">
+                <h4 class="task-title">UI/UX Design</h4>
+                <p class="task-desc">Perancangan wireframe dan prototype UI aplikasi mobile menggunakan prinsip-prinsip UX design.</p>
+                <a href="pdf/tugas/tugas-14.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 15 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-15">
+              <div class="acc-left">
+                <span class="acc-num">15</span>
+                <span class="acc-label">Pertemuan 15</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-15">
+              <div class="task-card">
+                <h4 class="task-title">Cloud Computing Dasar</h4>
+                <p class="task-desc">Laporan studi tentang layanan cloud computing (IaaS, PaaS, SaaS) dan penerapan di industri.</p>
+                <a href="pdf/tugas/tugas-15.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 16 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-16">
+              <div class="acc-left">
+                <span class="acc-num">16</span>
+                <span class="acc-label">Pertemuan 16</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-16">
+              <div class="task-card">
+                <h4 class="task-title">Kecerdasan Buatan</h4>
+                <p class="task-desc">Pengenalan konsep AI dan machine learning beserta implementasi sederhana pada dataset kecil.</p>
+                <a href="pdf/tugas/tugas-16.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 17 -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-17">
+              <div class="acc-left">
+                <span class="acc-num">17</span>
+                <span class="acc-label">Pertemuan 17</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-17">
+              <div class="task-card">
+                <h4 class="task-title">Proyek Mini — Web App</h4>
+                <p class="task-desc">Dokumentasi proyek mini berupa aplikasi web sederhana yang menggabungkan HTML, CSS, JS, dan PHP.</p>
+                <a href="pdf/tugas/tugas-17.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pertemuan 18 — UAS -->
+          <div class="accordion-item">
+            <button class="accordion-trigger" data-target="tugas-18">
+              <div class="acc-left">
+                <span class="acc-num">18</span>
+                <span class="acc-label">Pertemuan 18 — UAS</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="tugas-18">
+              <div class="task-card">
+                <h4 class="task-title">Ujian Akhir Semester</h4>
+                <p class="task-desc">Jawaban UAS mencakup seluruh materi semester — pemrograman, basis data, web, jaringan, dan keamanan.</p>
+                <a href="pdf/tugas/tugas-18.pdf" target="_blank" class="btn-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- ===== MATERI ===== -->
+    <section id="materi" class="section materi-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// 03</span>
+          <h2 class="section-title">Materi</h2>
+          <p class="section-sub">Kumpulan materi perkuliahan per pertemuan</p>
+        </div>
+
+        <div class="accordion-grid" id="materiAccordion">
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-1">
+              <div class="acc-left">
+                <span class="acc-num">01</span>
+                <span class="acc-label">Materi 1</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-1">
+              <div class="task-card">
+                <h4 class="task-title">Pengantar Teknologi Informasi</h4>
+                <p class="task-desc">Slide pengenalan mata kuliah, ruang lingkup TI, dan perkembangan teknologi informasi masa kini.</p>
+                <a href="pdf/materi/materi-1.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-2">
+              <div class="acc-left">
+                <span class="acc-num">02</span>
+                <span class="acc-label">Materi 2</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-2">
+              <div class="task-card">
+                <h4 class="task-title">Algoritma dan Flowchart</h4>
+                <p class="task-desc">Konsep dasar algoritma, cara menyusun flowchart, dan latihan membuat pseudocode sederhana.</p>
+                <a href="pdf/materi/materi-2.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-3">
+              <div class="acc-left">
+                <span class="acc-num">03</span>
+                <span class="acc-label">Materi 3</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-3">
+              <div class="task-card">
+                <h4 class="task-title">Pemrograman Terstruktur</h4>
+                <p class="task-desc">Prinsip pemrograman terstruktur: sequence, selection, repetition, dan modularitas program.</p>
+                <a href="pdf/materi/materi-3.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-4">
+              <div class="acc-left">
+                <span class="acc-num">04</span>
+                <span class="acc-label">Materi 4</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-4">
+              <div class="task-card">
+                <h4 class="task-title">Object Oriented Programming</h4>
+                <p class="task-desc">Konsep inti OOP: abstraksi, enkapsulasi, inheritance, dan polymorphism beserta contoh implementasinya.</p>
+                <a href="pdf/materi/materi-4.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-5">
+              <div class="acc-left">
+                <span class="acc-num">05</span>
+                <span class="acc-label">Materi 5</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-5">
+              <div class="task-card">
+                <h4 class="task-title">Struktur Data</h4>
+                <p class="task-desc">Pengenalan berbagai struktur data: array, linked list, stack, queue, tree, dan graph.</p>
+                <a href="pdf/materi/materi-5.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-6">
+              <div class="acc-left">
+                <span class="acc-num">06</span>
+                <span class="acc-label">Materi 6</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-6">
+              <div class="task-card">
+                <h4 class="task-title">Web Development Dasar</h4>
+                <p class="task-desc">Pengantar HTML, CSS, dan JavaScript untuk membangun halaman web statis yang informatif dan rapi.</p>
+                <a href="pdf/materi/materi-6.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-7">
+              <div class="acc-left">
+                <span class="acc-num">07</span>
+                <span class="acc-label">Materi 7</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-7">
+              <div class="task-card">
+                <h4 class="task-title">Basis Data Relasional</h4>
+                <p class="task-desc">Konsep DBMS, ERD, normalisasi, dan pengenalan SQL untuk manajemen data relasional.</p>
+                <a href="pdf/materi/materi-7.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-8">
+              <div class="acc-left">
+                <span class="acc-num">08</span>
+                <span class="acc-label">Materi 8</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-8">
+              <div class="task-card">
+                <h4 class="task-title">Pemrograman Web Dinamis</h4>
+                <p class="task-desc">Pengembangan web menggunakan PHP dan MySQL: session, form handling, dan operasi CRUD.</p>
+                <a href="pdf/materi/materi-8.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-9">
+              <div class="acc-left">
+                <span class="acc-num">09</span>
+                <span class="acc-label">Materi 9</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-9">
+              <div class="task-card">
+                <h4 class="task-title">Jaringan Komputer</h4>
+                <p class="task-desc">Topologi jaringan, model OSI, protokol TCP/IP, dan dasar konfigurasi jaringan lokal (LAN).</p>
+                <a href="pdf/materi/materi-9.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-10">
+              <div class="acc-left">
+                <span class="acc-num">10</span>
+                <span class="acc-label">Materi 10</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-10">
+              <div class="task-card">
+                <h4 class="task-title">Keamanan Informasi</h4>
+                <p class="task-desc">Ancaman siber, enkripsi data, autentikasi, dan pengantar keamanan aplikasi web (OWASP Top 10).</p>
+                <a href="pdf/materi/materi-10.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-11">
+              <div class="acc-left">
+                <span class="acc-num">11</span>
+                <span class="acc-label">Materi 11</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-11">
+              <div class="task-card">
+                <h4 class="task-title">Rekayasa Perangkat Lunak</h4>
+                <p class="task-desc">SDLC, metodologi Agile & Waterfall, pembuatan SRS, DFD, dan diagram UML untuk sistem perangkat lunak.</p>
+                <a href="pdf/materi/materi-11.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-12">
+              <div class="acc-left">
+                <span class="acc-num">12</span>
+                <span class="acc-label">Materi 12</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-12">
+              <div class="task-card">
+                <h4 class="task-title">Desain UI/UX</h4>
+                <p class="task-desc">Prinsip desain antarmuka, wireframing, prototyping, dan user research untuk pengalaman pengguna optimal.</p>
+                <a href="pdf/materi/materi-12.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-13">
+              <div class="acc-left">
+                <span class="acc-num">13</span>
+                <span class="acc-label">Materi 13</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-13">
+              <div class="task-card">
+                <h4 class="task-title">Cloud Computing</h4>
+                <p class="task-desc">Arsitektur cloud, model layanan (IaaS/PaaS/SaaS), deployment model, dan pengenalan AWS & GCP.</p>
+                <a href="pdf/materi/materi-13.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-14">
+              <div class="acc-left">
+                <span class="acc-num">14</span>
+                <span class="acc-label">Materi 14</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-14">
+              <div class="task-card">
+                <h4 class="task-title">Kecerdasan Buatan</h4>
+                <p class="task-desc">Pengantar AI, machine learning, supervised & unsupervised learning, dan implementasi dengan Python.</p>
+                <a href="pdf/materi/materi-14.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-15">
+              <div class="acc-left">
+                <span class="acc-num">15</span>
+                <span class="acc-label">Materi 15</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-15">
+              <div class="task-card">
+                <h4 class="task-title">Big Data & Analitik</h4>
+                <p class="task-desc">Konsep big data, karakteristik 5V, tools analitik (Hadoop, Spark), dan visualisasi data interaktif.</p>
+                <a href="pdf/materi/materi-15.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item mat">
+            <button class="accordion-trigger" data-target="materi-16">
+              <div class="acc-left">
+                <span class="acc-num">16</span>
+                <span class="acc-label">Materi 16</span>
+              </div>
+              <span class="acc-arrow">▶</span>
+            </button>
+            <div class="accordion-body" id="materi-16">
+              <div class="task-card">
+                <h4 class="task-title">Etika Profesi & Hukum TI</h4>
+                <p class="task-desc">Etika penggunaan teknologi, hak cipta digital, UU ITE, dan tanggung jawab profesional di bidang TI.</p>
+                <a href="pdf/materi/materi-16.pdf" target="_blank" class="btn-pdf mat-pdf">📄 Lihat PDF</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <span class="footer-logo"><span class="logo-bracket">[</span>GS<span class="logo-bracket">]</span></span>
-        <p class="footer-text">© 2025 Galih Septiyadi · Teknik Informatika · STMIK Mardira Indonesia</p>
-        <p class="footer-made">Dibuat dengan ☕ dan semangat belajar</p>
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">[Porto<span class="logo-accent">folio</span>]</span>
+        <p class="footer-tagline">Dokumentasi Tugas Kuliah</p>
+      </div>
+      <div class="footer-center">
+        <p>STMIK Mardira Indonesia</p>
+        <p>Program Studi Teknik Informatika</p>
+      </div>
+      <div class="footer-right">
+        <p class="footer-email">📧 nama@email.com</p>
+        <p class="footer-copy">© 2024 Nama Lengkap. All rights reserved.</p>
       </div>
     </div>
   </footer>

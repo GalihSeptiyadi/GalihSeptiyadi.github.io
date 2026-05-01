@@ -1,187 +1,168 @@
-/* =============================================
-   GALIH SEPTIYADI — AI PORTFOLIO
-   script.js
-   ============================================= */
+/* ==============================
+   DARK MODE
+================================ */
+const html = document.documentElement;
+const darkToggle = document.getElementById('darkToggle');
+const toggleIcon = darkToggle.querySelector('.toggle-icon');
 
-document.addEventListener('DOMContentLoaded', () => {
+const savedTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', savedTheme);
+toggleIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
-  // ==========================================
-  // DARK MODE TOGGLE
-  // ==========================================
-  const html = document.documentElement;
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = themeToggle?.querySelector('.theme-icon');
+darkToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  toggleIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+});
 
-  // Load saved theme (default: dark)
-  const savedTheme = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', savedTheme);
-  if (themeIcon) themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+/* ==============================
+   HAMBURGER & SIDEBAR
+================================ */
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const sidebarClose = document.getElementById('sidebarClose');
+const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-  themeToggle?.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    if (themeIcon) themeIcon.textContent = next === 'dark' ? '🌙' : '☀️';
-  });
+function openSidebar() {
+  sidebar.classList.add('open');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
 
+hamburger.addEventListener('click', openSidebar);
+sidebarClose.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+sidebarLinks.forEach(link => link.addEventListener('click', closeSidebar));
 
-  // ==========================================
-  // NAVBAR: scroll class + active link
-  // ==========================================
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+/* ==============================
+   NAVBAR SCROLL SHADOW
+================================ */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
 
-  window.addEventListener('scroll', () => {
-    // Add scrolled class
-    if (window.scrollY > 40) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
+/* ==============================
+   ACTIVE NAV LINK ON SCROLL
+================================ */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const sidebarNavLinks = document.querySelectorAll('.sidebar-link');
+
+function updateActiveNav() {
+  const scrollY = window.scrollY;
+  let currentId = '';
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 80;
+    const height = section.offsetHeight;
+    if (scrollY >= top && scrollY < top + height) {
+      currentId = section.getAttribute('id');
     }
-
-    // Active nav link based on scroll position
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
   });
 
-
-  // ==========================================
-  // HAMBURGER MENU (mobile)
-  // ==========================================
-  const hamburger = document.getElementById('hamburger');
-  const navLinksEl = document.getElementById('navLinks');
-
-  hamburger?.addEventListener('click', () => {
-    navLinksEl?.classList.toggle('open');
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
   });
-
-  // Close menu when clicking a link
- if (navLinksEl) {
-  navLinksEl.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinksEl.classList.remove('open');
-    });
+  sidebarNavLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
   });
 }
 
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
 
-  // ==========================================
-  // SCROLL REVEAL (Intersection Observer)
-  // ==========================================
-  const revealEls = document.querySelectorAll('.reveal');
+/* ==============================
+   ACCORDION
+================================ */
+const triggers = document.querySelectorAll('.accordion-trigger');
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        // Stagger animation for children within same parent
-        const siblings = entry.target.parentElement?.querySelectorAll('.reveal');
-        let delay = 0;
-        if (siblings) {
-          siblings.forEach((sib, idx) => {
-            if (sib === entry.target) delay = idx * 80;
-          });
-        }
+triggers.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const targetId = trigger.getAttribute('data-target');
+    const body = document.getElementById(targetId);
+    const item = trigger.closest('.accordion-item');
+    const isOpen = item.classList.contains('open');
 
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, delay);
-
-        revealObserver.unobserve(entry.target);
+    // Tutup semua dalam grid yang sama
+    const parentGrid = trigger.closest('.accordion-grid');
+    parentGrid.querySelectorAll('.accordion-item.open').forEach(openItem => {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        const openBody = openItem.querySelector('.accordion-body');
+        if (openBody) openBody.classList.remove('open');
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -60px 0px'
+
+    // Toggle yang diklik
+    item.classList.toggle('open', !isOpen);
+    if (body) body.classList.toggle('open', !isOpen);
   });
+});
 
-  revealEls.forEach(el => revealObserver.observe(el));
+/* ==============================
+   SKILL BAR ANIMATION
+================================ */
+const skillFills = document.querySelectorAll('.skill-fill');
+let skillAnimated = false;
 
+function animateSkills() {
+  const tentangSection = document.getElementById('tentang');
+  if (!tentangSection || skillAnimated) return;
 
-  // ==========================================
-  // PARALLAX (subtle hero orbs)
-  // ==========================================
-  const orbs = document.querySelectorAll('.orb');
-
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-    orbs.forEach((orb, i) => {
-      const factor = (i + 1) * 0.4;
-      orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+  const rect = tentangSection.getBoundingClientRect();
+  if (rect.top < window.innerHeight * 0.8) {
+    skillAnimated = true;
+    skillFills.forEach(fill => {
+      const w = fill.getAttribute('data-w');
+      fill.style.width = w + '%';
     });
-  });
-
-
-  // ==========================================
-  // SMOOTH SCROLL for anchor links
-  // ==========================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
-      if (href === '#') return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const navHeight = document.getElementById('navbar')?.offsetHeight || 72;
-        const top = target.offsetTop - navHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
-
-
-  // ==========================================
-  // HERO TEXT TYPEWRITER EFFECT (optional subtitle)
-  // ==========================================
-  const heroSub = document.querySelector('.hero-sub');
-  if (heroSub) {
-    heroSub.style.opacity = '0';
-    setTimeout(() => {
-      heroSub.style.transition = 'opacity 1s ease';
-      heroSub.style.opacity = '1';
-    }, 600);
   }
+}
 
+window.addEventListener('scroll', animateSkills, { passive: true });
+animateSkills();
 
-  // ==========================================
-  // CARD HOVER GLOW (follow mouse)
-  // ==========================================
-  document.querySelectorAll('.tugas-card, .tentang-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mouse-x', `${x}%`);
-      card.style.setProperty('--mouse-y', `${y}%`);
-    });
+/* ==============================
+   FADE IN ON SCROLL
+================================ */
+const fadeEls = document.querySelectorAll(
+  '.accordion-item, .about-desc-card, .info-card, .hero-badge, .hero-stats, .stat-item'
+);
+
+fadeEls.forEach(el => el.classList.add('fade-in'));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
   });
+}, { threshold: 0.1 });
 
+fadeEls.forEach(el => observer.observe(el));
 
-  // ==========================================
-  // PAGE LOAD ANIMATION
-  // ==========================================
-  document.body.style.opacity = '0';
-  document.body.style.transform = 'translateY(8px)';
-  document.body.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-  requestAnimationFrame(() => {
-    document.body.style.opacity = '1';
-    document.body.style.transform = 'translateY(0)';
+/* ==============================
+   SMOOTH SCROLL (fallback)
+================================ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      const offset = target.offsetTop - (parseInt(getComputedStyle(html).getPropertyValue('--nav-h')) || 64);
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
   });
-
 });
