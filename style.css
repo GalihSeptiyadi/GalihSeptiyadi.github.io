@@ -404,11 +404,10 @@ ul { list-style: none; }
 
 .modal-box {
   position: relative;
-  background: var(--clr-surface);
+  background: #1a1a1a;      /* gelap seperti image viewer */
   border-radius: var(--radius-lg);
-  padding: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  /* Animasi scale */
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
   transform: scale(0.85);
   transition: transform 0.3s ease;
 }
@@ -418,11 +417,12 @@ ul { list-style: none; }
 }
 
 .modal-photo {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
+  width: 340px;
+  height: 340px;
+  object-fit: contain;      /* tampilkan full foto tanpa crop */
+  border-radius: var(--radius-sm);   /* rounded kecil, bukan lingkaran */
   display: block;
+  background: #1a1a1a;      /* bg gelap di area kosong (jika foto portrait/landscape) */
 }
 
 .modal-close {
