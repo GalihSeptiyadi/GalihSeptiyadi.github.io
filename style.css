@@ -254,14 +254,15 @@ ul { list-style: none; }
 /* Decorative circle background */
 .hero-deco {
   position: absolute;
-  right: -120px;
+  right: -80px;
   top: 50%;
   transform: translateY(-50%);
-  width: 520px;
-  height: 520px;
+  width: 340px;          /* lebih kecil dari sebelumnya (520px) */
+  height: 340px;
   border-radius: 50%;
   background: var(--clr-hero-deco);
-  opacity: 0.35;
+  opacity: 0.18;         /* jauh lebih transparan (dari 0.35) */
+  filter: blur(48px);    /* blur supaya soft & tidak mencolok */
   pointer-events: none;
   transition: background var(--transition);
 }
@@ -653,7 +654,7 @@ ul { list-style: none; }
 
   /* Hero */
   .hero { min-height: 70vh; }
-  .hero-deco { width: 300px; height: 300px; right: -80px; }
+  .hero-deco { width: 200px; height: 200px; right: -60px; }
 
   /* Profil card: vertical stack */
   .profile-card {
