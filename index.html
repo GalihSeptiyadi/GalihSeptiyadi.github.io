@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Pribadi - Kecerdasan Buatan</title>
+  <title>Web Pribadi</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Lora (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -13,8 +17,12 @@
     <div class="nav-container">
       <a href="#beranda" class="nav-logo">Web Pribadi</a>
 
-      <!-- Menu desktop -->
-      <ul class="nav-menu" id="navMenu">
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#beranda" class="nav-link">Beranda</a></li>
         <li><a href="#profil" class="nav-link">Profil</a></li>
         <li><a href="#tugas" class="nav-link">Tugas</a></li>
@@ -22,145 +30,140 @@
         <li><a href="#kontak" class="nav-link">Kontak</a></li>
       </ul>
 
-      <div class="nav-actions">
-        <!-- Tombol dark mode -->
-        <button class="dark-toggle" id="darkToggle" title="Ganti Tema">
-          <span class="icon-sun">☀️</span>
-          <span class="icon-moon">🌙</span>
-        </button>
-
-        <!-- Hamburger (mobile) -->
-        <button class="hamburger" id="hamburger" aria-label="Buka menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <!-- Toggle dark/light mode -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="icon-sun">☀️</span>
+        <span class="icon-moon">🌙</span>
+      </button>
     </div>
   </nav>
 
   <!-- ===== HERO / BERANDA ===== -->
   <section class="hero" id="beranda">
     <div class="hero-content">
-      <p class="hero-tag">Mata Kuliah Kecerdasan Buatan</p>
-      <h1 class="hero-title">Selamat Datang di<br />Web Pribadi Saya</h1>
+      <p class="hero-eyebrow">Mata Kuliah Kecerdasan Buatan</p>
+      <h1 class="hero-title">Selamat Datang di<br /><em>Web Pribadi Saya</em></h1>
       <p class="hero-desc">
-        Website ini dibuat untuk menampilkan profil dan tugas-tugas
-        dalam mata kuliah Kecerdasan Buatan. Semua informasi tersusun
-        rapi agar mudah diakses.
+        Website ini dibuat sebagai wadah untuk menampilkan profil dan
+        tugas-tugas dalam mata kuliah Kecerdasan Buatan. Semoga bermanfaat
+        dan informatif.
       </p>
       <a href="#tugas" class="btn-primary">Lihat Tugas →</a>
     </div>
-    <div class="hero-decoration"></div>
+    <div class="hero-deco" aria-hidden="true"></div>
   </section>
 
   <!-- ===== PROFIL ===== -->
   <section class="section" id="profil">
     <div class="container">
       <h2 class="section-title">Profil</h2>
-      <p class="section-sub">Informasi singkat tentang saya</p>
+      <div class="profile-card">
 
-      <div class="profil-card">
-        <!-- Foto profil — klik untuk preview besar -->
-        <div class="profil-foto-wrap">
+        <!-- Foto Profil -->
+        <div class="profile-photo-wrap">
           <img
-            src="https://via.placeholder.com/160x160/a8c5a0/ffffff?text=Foto"
+            src="https://ui-avatars.com/api/?name=Nama+Anda&background=8aab89&color=fff&size=200&font-size=0.35&rounded=true"
             alt="Foto Profil"
-            class="profil-foto"
-            id="profilFoto"
+            class="profile-photo"
+            id="profile-photo"
             title="Klik untuk memperbesar"
           />
-          <span class="foto-hint">Klik untuk perbesar</span>
+          <span class="photo-hint">klik untuk memperbesar</span>
         </div>
 
-        <div class="profil-info">
+        <!-- Info Profil -->
+        <div class="profile-info">
           <table class="info-table">
-            <tr>
-              <td class="info-label">Nama</td>
-              <td>: <strong>[Nama Kamu]</strong></td>
-            </tr>
-            <tr>
-              <td class="info-label">NIM</td>
-              <td>: [NIM Kamu]</td>
-            </tr>
-            <tr>
-              <td class="info-label">Kampus</td>
-              <td>: [Nama Kampus]</td>
-            </tr>
-            <tr>
-              <td class="info-label">Program Studi</td>
-              <td>: Teknik Informatika</td>
-            </tr>
-            <tr>
-              <td class="info-label">Mata Kuliah</td>
-              <td>: Kecerdasan Buatan</td>
-            </tr>
-            <tr>
-              <td class="info-label">Angkatan</td>
-              <td>: [Angkatan]</td>
-            </tr>
-            <tr>
-              <td class="info-label">Kelas</td>
-              <td>: [Kelas]</td>
-            </tr>
+            <tr><th>Nama</th><td>[Isi Nama Anda]</td></tr>
+            <tr><th>NIM</th><td>[Isi NIM Anda]</td></tr>
+            <tr><th>Kampus</th><td>[Isi Nama Kampus]</td></tr>
+            <tr><th>Program Studi</th><td>Teknik Informatika</td></tr>
+            <tr><th>Mata Kuliah</th><td>Kecerdasan Buatan</td></tr>
+            <tr><th>Angkatan</th><td>[Isi Angkatan]</td></tr>
+            <tr><th>Kelas</th><td>[Isi Kelas]</td></tr>
           </table>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== MODAL FOTO PROFIL ===== -->
+  <div class="modal-overlay" id="photo-modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Tutup">&times;</button>
+      <img
+        src="https://ui-avatars.com/api/?name=Nama+Anda&background=8aab89&color=fff&size=400&font-size=0.35&rounded=true"
+        alt="Foto Profil Besar"
+        class="modal-photo"
+        id="modal-photo"
+      />
+    </div>
+  </div>
+
   <!-- ===== TUGAS ===== -->
   <section class="section section-alt" id="tugas">
     <div class="container">
       <h2 class="section-title">Tugas</h2>
-      <p class="section-sub">Daftar tugas mata kuliah Kecerdasan Buatan</p>
+      <div class="card-list">
 
-      <div class="card-grid">
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge">Tugas 1</span>
-            <span class="card-date">Maret 2025</span>
+        <!-- Tugas 1 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">01</span>
+              <div>
+                <p class="card-title">Pengantar Kecerdasan Buatan</p>
+                <p class="card-date">12 Maret 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Membuat Website pribadi</h3>
-          <p class="card-desc">membuat web pribadi untuk dengan fungsi menampilkan tugas tugas</p>
-          <button class="btn-card"
-            data-modal="modal-tugas"
-            data-title="Tugas 1: Pengantar Kecerdasan Buatan"
-            data-content="Membuat sebuah webpage pribadi yang menggunakan hosting dan domain tersendiri (bukan blog instant seperti wordpress, blogspot, atau yang lainnya). Webpage pribadi tersebut diantaranya digunakan untuk menampilkan tugas-tugas dari matakuliah Kecerdasan Buatan.<br><br><a 
-            href='https://danirtms.wordpress.com/2026/04/14/tugas-kecerdasan-buatan-kelas-g2023-semester-genap-2025-2026-stmik-mardira-indonesia/' class='modal-link'>📄 Lihat Dokumen Tugas</a>">
-            Lihat Tugas
-          </button>
+          <div class="card-body">
+            <p>Tugas ini membahas pengertian, sejarah, dan ruang lingkup
+               Kecerdasan Buatan secara umum, serta perkembangannya dari masa
+               ke masa hingga era modern.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Tugas ↗</a>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge">Tugas 2</span>
-            <span class="card-date">April 2025</span>
+        <!-- Tugas 2 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">02</span>
+              <div>
+                <p class="card-title">Penerapan AI dalam Kehidupan Sehari-hari</p>
+                <p class="card-date">26 Maret 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Penerapan AI dalam Kehidupan Sehari-hari</h3>
-          <p class="card-desc">Menganalisis implementasi nyata kecerdasan buatan dalam berbagai bidang kehidupan manusia masa kini.</p>
-          <button class="btn-card"
-            data-modal="modal-tugas"
-            data-title="Tugas 2: Penerapan AI dalam Kehidupan Sehari-hari"
-            data-content="Tugas berupa analisis dan presentasi tentang bagaimana AI digunakan dalam kehidupan nyata, contohnya: rekomendasi Netflix, asisten virtual (Siri/Google Assistant), deteksi wajah, hingga diagnosis medis berbasis AI. Mahasiswa diminta menyajikan minimal 5 contoh nyata beserta dampaknya.<br><br><a href='#' class='modal-link'>📄 Lihat Dokumen Tugas</a>">
-            Lihat Tugas
-          </button>
+          <div class="card-body">
+            <p>Mengidentifikasi dan menganalisis berbagai penerapan kecerdasan
+               buatan dalam kehidupan nyata, mulai dari asisten virtual,
+               rekomendasi sistem, hingga kendaraan otonom.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Tugas ↗</a>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge">Tugas 3</span>
-            <span class="card-date">Mei 2025</span>
+        <!-- Tugas 3 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">03</span>
+              <div>
+                <p class="card-title">Sistem Pakar Sederhana</p>
+                <p class="card-date">9 April 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Sistem Pakar Sederhana</h3>
-          <p class="card-desc">Merancang dan mengimplementasikan sistem pakar berbasis aturan untuk mendiagnosis suatu permasalahan sederhana.</p>
-          <button class="btn-card"
-            data-modal="modal-tugas"
-            data-title="Tugas 3: Sistem Pakar Sederhana"
-            data-content="Tugas ini mengharuskan mahasiswa membangun sistem pakar berbasis aturan (rule-based expert system) menggunakan bahasa pemrograman pilihan. Sistem harus mampu mendiagnosis setidaknya satu domain masalah, misalnya gangguan kesehatan ringan atau kerusakan perangkat elektronik, dengan minimal 10 aturan IF-THEN.<br><br><a href='#' class='modal-link'>📄 Lihat Dokumen Tugas</a>">
-            Lihat Tugas
-          </button>
+          <div class="card-body">
+            <p>Merancang dan mengimplementasikan sistem pakar sederhana berbasis
+               aturan (rule-based) untuk membantu pengambilan keputusan pada
+               domain masalah tertentu.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Tugas ↗</a>
+          </div>
         </div>
 
       </div>
@@ -171,53 +174,66 @@
   <section class="section" id="materi">
     <div class="container">
       <h2 class="section-title">Materi</h2>
-      <p class="section-sub">Ringkasan materi perkuliahan</p>
+      <div class="card-list">
 
-      <div class="card-grid">
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge materi-badge">Materi 1</span>
-            <span class="card-date">Maret 2025</span>
+        <!-- Materi 1 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">01</span>
+              <div>
+                <p class="card-title">Pengantar AI & Sejarahnya</p>
+                <p class="card-date">5 Maret 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Konsep Dasar AI</h3>
-          <p class="card-desc">Pengenalan definisi, ruang lingkup, dan sejarah perkembangan kecerdasan buatan dari masa ke masa.</p>
-          <button class="btn-card"
-            data-modal="modal-materi"
-            data-title="Materi 1: Konsep Dasar AI"
-            data-content="Materi ini mencakup definisi Artificial Intelligence menurut berbagai ahli, pembagian AI menjadi Narrow AI dan General AI, serta timeline perkembangan AI mulai 1950-an hingga era modern. Termasuk diskusi tentang Turing Test dan implikasinya.<br><br><a href='#' class='modal-link'>📚 Lihat Slide Materi</a>">
-            Lihat Materi
-          </button>
+          <div class="card-body">
+            <p>Materi pembuka yang memperkenalkan definisi Kecerdasan Buatan,
+               tonggak sejarah penting, serta cabang-cabang ilmu yang menjadi
+               fondasi AI modern.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Materi ↗</a>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge materi-badge">Materi 2</span>
-            <span class="card-date">April 2025</span>
+        <!-- Materi 2 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">02</span>
+              <div>
+                <p class="card-title">Algoritma Pencarian</p>
+                <p class="card-date">19 Maret 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Pencarian & Representasi Pengetahuan</h3>
-          <p class="card-desc">Algoritma pencarian dalam AI: BFS, DFS, A*, serta cara merepresentasikan pengetahuan dalam sistem cerdas.</p>
-          <button class="btn-card"
-            data-modal="modal-materi"
-            data-title="Materi 2: Pencarian & Representasi Pengetahuan"
-            data-content="Membahas strategi pencarian buta (blind search) seperti BFS dan DFS, serta pencarian heuristik seperti algoritma A*. Dilanjutkan dengan metode representasi pengetahuan: logika predikat, jaringan semantik, dan frame.<br><br><a href='#' class='modal-link'>📚 Lihat Slide Materi</a>">
-            Lihat Materi
-          </button>
+          <div class="card-body">
+            <p>Membahas berbagai algoritma pencarian seperti BFS, DFS, A*, dan
+               heuristik yang digunakan dalam penyelesaian masalah berbasis
+               kecerdasan buatan.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Materi ↗</a>
+          </div>
         </div>
 
-        <div class="card">
-          <div class="card-header">
-            <span class="card-badge materi-badge">Materi 3</span>
-            <span class="card-date">Mei 2025</span>
+        <!-- Materi 3 -->
+        <div class="expand-card">
+          <div class="card-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="card-meta">
+              <span class="card-number">03</span>
+              <div>
+                <p class="card-title">Machine Learning Dasar</p>
+                <p class="card-date">2 April 2025</p>
+              </div>
+            </div>
+            <span class="card-chevron">&#8964;</span>
           </div>
-          <h3 class="card-title">Machine Learning Dasar</h3>
-          <p class="card-desc">Pengantar machine learning: supervised, unsupervised, dan reinforcement learning beserta contoh algoritmanya.</p>
-          <button class="btn-card"
-            data-modal="modal-materi"
-            data-title="Materi 3: Machine Learning Dasar"
-            data-content="Materi ini memperkenalkan tiga paradigma utama Machine Learning: supervised learning (klasifikasi & regresi), unsupervised learning (clustering), dan reinforcement learning. Disertai contoh algoritma: Linear Regression, K-Means, dan Decision Tree.<br><br><a href='#' class='modal-link'>📚 Lihat Slide Materi</a>">
-            Lihat Materi
-          </button>
+          <div class="card-body">
+            <p>Pengenalan konsep machine learning, perbedaan supervised,
+               unsupervised, dan reinforcement learning, serta contoh penerapan
+               masing-masing pendekatan.</p>
+            <a href="#" target="_blank" class="btn-outline">Lihat Materi ↗</a>
+          </div>
         </div>
 
       </div>
@@ -226,57 +242,33 @@
 
   <!-- ===== FOOTER / KONTAK ===== -->
   <footer class="footer" id="kontak">
-    <div class="container">
-      <h2 class="footer-title">Kontak</h2>
-      <p class="footer-sub">Hubungi saya melalui platform berikut</p>
-
-      <div class="kontak-list">
-        <a href="mailto:emailkamu@example.com" class="kontak-item">
-          <span class="kontak-icon">✉️</span>
-          <span>[Email Kamu]</span>
-        </a>
-        <a href="https://instagram.com/usernamekamu" target="_blank" class="kontak-item">
-          <span class="kontak-icon">📸</span>
-          <span>@[Instagram Kamu]</span>
-        </a>
-        <a href="https://github.com/usernamekamu" target="_blank" class="kontak-item">
-          <span class="kontak-icon">💻</span>
-          <span>github.com/[Username Kamu]</span>
-        </a>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">Web Pribadi</p>
+        <p class="footer-tagline">Dibuat untuk mata kuliah Kecerdasan Buatan</p>
       </div>
-
-      <p class="footer-copy">© 2025 [Nama Kamu]. Web Pribadi — Mata Kuliah Kecerdasan Buatan.</p>
+      <div class="footer-contact">
+        <p class="footer-heading">Kontak</p>
+        <ul>
+          <li>
+            <span>✉️</span>
+            <a href="mailto:emailanda@email.com">emailanda@email.com</a>
+          </li>
+          <li>
+            <span>📸</span>
+            <a href="https://instagram.com/username" target="_blank">@username</a>
+          </li>
+          <li>
+            <span>🐙</span>
+            <a href="https://github.com/username" target="_blank">github.com/username</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      &copy; 2025 Web Pribadi · Kecerdasan Buatan
     </div>
   </footer>
-
-  <!-- ===== MODAL TUGAS / MATERI ===== -->
-  <div class="modal-overlay" id="modal-tugas" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <button class="modal-close" data-close="modal-tugas">×</button>
-      <h3 class="modal-title" id="modal-tugas-title"></h3>
-      <div class="modal-body" id="modal-tugas-body"></div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modal-materi" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <button class="modal-close" data-close="modal-materi">×</button>
-      <h3 class="modal-title" id="modal-materi-title"></h3>
-      <div class="modal-body" id="modal-materi-body"></div>
-    </div>
-  </div>
-
-  <!-- ===== MODAL FOTO PROFIL ===== -->
-  <div class="modal-overlay" id="modal-foto" role="dialog" aria-modal="true">
-    <div class="modal-foto-box">
-      <button class="modal-close" data-close="modal-foto">×</button>
-      <img
-        src="https://via.placeholder.com/400x400/a8c5a0/ffffff?text=Foto+Profil"
-        alt="Preview Foto Profil"
-        class="foto-preview-img"
-      />
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>

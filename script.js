@@ -1,137 +1,130 @@
-/* ===========================
+/* ===================================================
    HAMBURGER MENU
-=========================== */
+   =================================================== */
 const hamburger = document.getElementById('hamburger');
-const navMenu   = document.getElementById('navMenu');
+const navMenu   = document.getElementById('nav-menu');
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
+  hamburger.classList.toggle('open');
   navMenu.classList.toggle('open');
 });
 
-// Tutup menu saat salah satu link diklik
-document.querySelectorAll('.nav-link').forEach(link => {
+// Tutup menu saat link diklik (mobile)
+navMenu.querySelectorAll('.nav-link').forEach(link => {
   link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
+    hamburger.classList.remove('open');
     navMenu.classList.remove('open');
   });
 });
 
-/* ===========================
-   DARK / LIGHT MODE
-=========================== */
-const darkToggle = document.getElementById('darkToggle');
-const body       = document.body;
+/* ===================================================
+   DARK / LIGHT MODE TOGGLE
+   =================================================== */
+const themeToggle = document.getElementById('theme-toggle');
+const htmlEl      = document.documentElement;
 
-// Cek preferensi yang tersimpan
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
+// Cek preferensi tema yang tersimpan
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  htmlEl.setAttribute('data-theme', savedTheme);
 }
 
-darkToggle.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  // Simpan preferensi ke localStorage
-  localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+themeToggle.addEventListener('click', () => {
+  const current = htmlEl.getAttribute('data-theme');
+  const next    = current === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
 });
 
-/* ===========================
-   SMOOTH SCROLL
-=========================== */
-// Sudah ditangani oleh `scroll-behavior: smooth` di CSS
-// Script ini bisa digunakan untuk offset karena navbar fixed
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const targetId = this.getAttribute('href');
-    const target   = document.querySelector(targetId);
-    if (!target) return;
+/* ===================================================
+   MODAL FOTO PROFIL
+   =================================================== */
+const profilePhoto = document.getElementById('profile-photo');
+const photoModal   = document.getElementById('photo-modal');
+const modalClose   = document.getElementById('modal-close');
 
-    e.preventDefault();
-    const offset = document.getElementById('navbar').offsetHeight;
-    const top    = target.getBoundingClientRect().top + window.pageYOffset - offset;
-
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
+// Buka modal saat foto diklik
+profilePhoto.addEventListener('click', () => {
+  photoModal.classList.add('active');
+  photoModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden'; // cegah scroll saat modal terbuka
 });
 
-/* ===========================
-   MODAL HELPER (buka & tutup)
-=========================== */
-/**
- * Buka modal berdasarkan ID
- * @param {string} modalId - ID elemen overlay
- */
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden'; // Kunci scroll background
-}
+// Tutup modal dengan tombol ×
+modalClose.addEventListener('click', closeModal);
 
-/**
- * Tutup modal berdasarkan ID
- * @param {string} modalId - ID elemen overlay
- */
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (!modal) return;
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// Tombol close (×) di dalam modal
-document.querySelectorAll('.modal-close').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const modalId = btn.getAttribute('data-close');
-    closeModal(modalId);
-  });
-});
-
-// Klik area overlay (luar box) untuk menutup
-document.querySelectorAll('.modal-overlay').forEach(overlay => {
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeModal(overlay.id);
-    }
-  });
+// Tutup modal saat klik area luar (overlay)
+photoModal.addEventListener('click', (e) => {
+  if (e.target === photoModal) closeModal();
 });
 
 // Tutup modal dengan tombol Escape
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(modal => {
-      closeModal(modal.id);
-    });
+  if (e.key === 'Escape' && photoModal.classList.contains('active')) {
+    closeModal();
   }
 });
 
-/* ===========================
-   MODAL TUGAS & MATERI
-=========================== */
-// Semua tombol "Lihat Tugas" dan "Lihat Materi"
-document.querySelectorAll('.btn-card').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const modalId = btn.getAttribute('data-modal');
-    const title   = btn.getAttribute('data-title');
-    const content = btn.getAttribute('data-content');
+function closeModal() {
+  photoModal.classList.remove('active');
+  photoModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
 
-    // Isi konten modal sesuai card yang diklik
-    const titleEl = document.getElementById(modalId + '-title');
-    const bodyEl  = document.getElementById(modalId + '-body');
+/* ===================================================
+   EXPAND / COLLAPSE CARDS (Tugas & Materi)
+   =================================================== */
+document.querySelectorAll('.card-header').forEach(header => {
+  header.addEventListener('click', () => toggleCard(header));
 
-    if (titleEl) titleEl.textContent = title;
-    if (bodyEl)  bodyEl.innerHTML   = content;
-
-    openModal(modalId);
+  // Aksesibilitas: Enter dan Space untuk keyboard
+  header.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleCard(header);
+    }
   });
 });
 
-/* ===========================
-   PREVIEW FOTO PROFIL
-=========================== */
-const profilFoto = document.getElementById('profilFoto');
+function toggleCard(header) {
+  const card     = header.closest('.expand-card');
+  const isOpen   = card.classList.contains('open');
 
-if (profilFoto) {
-  profilFoto.addEventListener('click', () => {
-    openModal('modal-foto');
+  // Tutup semua card yang terbuka (opsional: hapus blok ini jika ingin multi-open)
+  document.querySelectorAll('.expand-card.open').forEach(c => {
+    c.classList.remove('open');
+    c.querySelector('.card-header').setAttribute('aria-expanded', 'false');
   });
+
+  // Buka card yang diklik (jika sebelumnya tertutup)
+  if (!isOpen) {
+    card.classList.add('open');
+    header.setAttribute('aria-expanded', 'true');
+  }
 }
+
+/* ===================================================
+   SMOOTH SCROLL (fallback untuk browser lama)
+   =================================================== */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ===================================================
+   NAVBAR — tambah shadow saat di-scroll
+   =================================================== */
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 10) {
+    navbar.style.boxShadow = '0 2px 16px rgba(0,0,0,0.08)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+});
